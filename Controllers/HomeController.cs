@@ -17,4 +17,23 @@ public class HomeController : Controller
     {
         return View();
     }
+    public IActionResult Iniciarsesion(string nombreusuario, string contraseña)
+    {
+         var info = InfoUsuario.LevantarUsuario(nombreusuario, contraseña);
+
+        if (info != null)
+        {
+            HttpContext.Session.SetString("NombreDeUsuario", info.NombreUsuario);
+            return RedirectToAction();
+        }
+        else
+        {
+            ViewBag.ErrorAlIniciarSesion = "Incorrecto";
+            return View("IniciarSesion");
+        }
+    }
+    public IActionResult Registro(string nombre, string contraseña)
+    {
+        
+    }
 }
