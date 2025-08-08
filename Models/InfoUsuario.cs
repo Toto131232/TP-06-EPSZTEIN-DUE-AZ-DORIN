@@ -23,4 +23,8 @@ public static InfoUsuario LevantarUsuario(string nombre, string contraseña)
             return connection.QueryFirstOrDefault<InfoUsuario>(query, new { nombreusuario });
         }
     }
+    public bool VerificarUsuario()
+    {
+        
+    }
 }
