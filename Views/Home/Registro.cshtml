@@ -1,10 +1,10 @@
-﻿@{
-    ViewData["Title"] = "Iniciar Sesión";
+@{
+    ViewData["Title"] = "Registro de Usuario";
 }
 
-<h2>Iniciar Sesión</h2>
+<h2>Registrarse</h2>
 
-<form asp-action="Login" method="post">
+<form asp-action="Register" method="post">
     <div>
         <label>Nombre de Usuario</label>
         <input type="text" name="Username" required />
@@ -13,7 +13,7 @@
         <label>Contraseña</label>
         <input type="password" name="Password" required />
     </div>
-    <button type="submit">Ingresar</button>
+    <button type="submit">Registrarse</button>
 </form>
 
 @if (ViewBag.Error != null)
@@ -22,5 +22,5 @@
 }
 
 <p>
-    ¿No tienes cuenta? <a asp-controller="Auth" asp-action="Register">Registrarse</a>
+    ¿Ya tienes cuenta? <a asp-controller="Auth" asp-action="Login">Iniciar Sesión</a>
 </p>
