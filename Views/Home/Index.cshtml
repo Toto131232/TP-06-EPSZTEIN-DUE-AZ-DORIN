@@ -1,26 +1,12 @@
 ﻿@{
-    ViewData["Title"] = "Iniciar Sesión";
+    ViewData["Title"] = "ToDoList - Bienvenida";
 }
 
-<h2>Iniciar Sesión</h2>
+<div class="text-center mt-5">
+    <h1 class="display-4">Bienvenido a <strong>ToDoList</strong></h1>
 
-<form asp-action="Login" method="post">
-    <div>
-        <label>Nombre de Usuario</label>
-        <input type="text" name="Username" required />
+    <div class="mt-4">
+        <a class="btn btn-primary btn-lg m-2" asp-controller="Auth" asp-action="Register">Registrarse</a>
+        <a class="btn btn-success btn-lg m-2" asp-controller="Auth" asp-action="Login">Iniciar Sesión</a>
     </div>
-    <div>
-        <label>Contraseña</label>
-        <input type="password" name="Password" required />
-    </div>
-    <button type="submit">Ingresar</button>
-</form>
-
-@if (ViewBag.Error != null)
-{
-    <p style="color:red">@ViewBag.Error</p>
-}
-
-<p>
-    ¿No tienes cuenta? <a asp-controller="Auth" asp-action="Register">Registrarse</a>
-</p>
+</div>

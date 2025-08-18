@@ -6,13 +6,14 @@ public class Usuario
 {
     public string NombreUsuario { get; set; }
     public string Contraseña { get; set; }
-    public List<Tarea> Tareas { get; set; }
+    public int Id {get; set;}
 
-    public Usuario(int Id, string NombreUsuario, string Contraseña, List<Tarea> Tareas)
+    public Usuario(int Id, string NombreUsuario, string Contraseña)
     {
+        this.Id=Id;
         this.NombreUsuario = NombreUsuario;
         this.Contraseña = Contraseña;
-        this.Tareas = Tareas;
+        
     }
     public static int AgregarUsuario(string nombreUsuario, string contraseña)
     {

@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "Perfil";
+}
+
+<div class="container mt-5">
+    <h2>Perfil de @ViewBag.Username</h2>
+    <hr />
+
+    <h4 class="mt-4">Mis Tareas</h4>
+
+    @if (ViewBag.Tareas != null && ((List<string>)ViewBag.Tareas).Any())
+    {
+        <ul class="list-group mt-3">
+            @foreach (var tarea in (List<string>)ViewBag.Tareas)
+            {
+                <li class="list-group-item">@tarea</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p class="text-muted">Todavía no tenés tareas registradas.</p>
+    }
+</div>
+
