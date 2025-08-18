@@ -14,12 +14,12 @@ public class BD
         }
         return Usuarios;
     }
-    public static List<Tarea> LevantarTareas(Usuario usuario)
+    public static List<Tarea> LevantarTareas(int Id)
     {
-        using (SqlConnection connection = new SqlConnection(_connectionString))
+        using (SqlConnection connection = Conexion())
         {
-            string query = "SELECT * FROM Tareas INNER JOIN UsuarioXTareas on Id = IdTarea WHERE IdUsuario = @Id";
-            Tareas = connection.Query<Tarea>(query, new { ID = usuario.Id }).ToList();
+            string query = "SELECT * FROM Tareas WHERRE Id= @Id";
+            Tareas = connection.Query<Tarea>(query, new {Id}).ToList();
         }
         return Tareas;
     }
@@ -39,5 +39,59 @@ public class BD
     {
         return new SqlConnection(_connectionString);
     }
+    public static List<Tarea> VerificarTareasActivas()
+    {
+        using (SqlConnection connection = Conexion())
+        {
+            var query = "SELECT * FROM Tarea WHERE  Finalizada=FALSE";
+            Tareas = connection.Query<Tarea>(query).ToList();
+            return Tareas;
+        }
+    }
+    public static List<Tarea> VerificarTareasFinalizadas()
+    {
+        using (SqlConnection connection = Conexion())
+        {
+            var query = "SELECT * FROM Tareas WHERE Finalizada = true";
+            Tareas = connection.Query<Tarea>(query).ToList();
+            return Tareas;
+        }
+    }
+    public static void FinalizarTareas(int Id)
+    {
+        using (SqlConnection connection = Conexion())
+        {
+            connection.Execute("UPDATE Tareas SET Finalizada = true WHERE Id = @Id", new { Id });
+        }
+    }
+    public static void EliminarTareas(int ID)
+    {
+        using (SqlConnection connection = Conexion())
+        {
+            connection.Execute("DELETE FROM UsuarioXTarea WHERE IdTarea = @ID", new { ID });
+            connection.Execute("DELETE FROM Tareas WHERE ID = @ID", new { ID });
+        }
+    }
+    public static int AgregarTarea(string titulo)
+    {
+        int Id = connection.Query<int>("INSERT INTO Tareas Titulo VALUES @titulo", new { titulo });
+        return Id;
+    }
+    public static void AgregarUsuarioXTarea(int IdUsuario, int IdTarea)
+    {
+        using (SqlConnection connection = Conexion())
+        {
+            int Id = connection.QueryFirstOrDefault<int>(
+                "SELECT ISNULL(MAX(Id), 0) + 1 FROM UsuarioXTarea"
+            );
+
+            connection.Execute(
+                "INSERT INTO UsuarioXTarea (Id, Idusuario, IdTarea) VALUES (@Id, @IdUsuario, @IdTarea)",
+                new { id = Id, IdUsuario, IdTarea }
+            );
+        }
+    }
+
+
     
 }
