@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Toto Usuario\\Escritorio\\AAA\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\TP-06-EPSZTEIN-DUEÑAZ-DORIN.csproj": {}
+    "C:\\Users\\49194388\\Desktop\\AA\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\TP-06-EPSZTEIN-DUEÑAZ-DORIN.csproj": {}
   },
   "projects": {
-    "D:\\Toto Usuario\\Escritorio\\AAA\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\TP-06-EPSZTEIN-DUEÑAZ-DORIN.csproj": {
+    "C:\\Users\\49194388\\Desktop\\AA\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\TP-06-EPSZTEIN-DUEÑAZ-DORIN.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Toto Usuario\\Escritorio\\AAA\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\TP-06-EPSZTEIN-DUEÑAZ-DORIN.csproj",
+        "projectUniqueName": "C:\\Users\\49194388\\Desktop\\AA\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\TP-06-EPSZTEIN-DUEÑAZ-DORIN.csproj",
         "projectName": "TP-06-EPSZTEIN-DUEÑAZ-DORIN",
-        "projectPath": "D:\\Toto Usuario\\Escritorio\\AAA\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\TP-06-EPSZTEIN-DUEÑAZ-DORIN.csproj",
-        "packagesPath": "C:\\Users\\Toto\\.nuget\\packages\\",
-        "outputPath": "D:\\Toto Usuario\\Escritorio\\AAA\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\obj\\",
+        "projectPath": "C:\\Users\\49194388\\Desktop\\AA\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\TP-06-EPSZTEIN-DUEÑAZ-DORIN.csproj",
+        "packagesPath": "C:\\Users\\49194388\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\49194388\\Desktop\\AA\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Toto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\49194388\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -73,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

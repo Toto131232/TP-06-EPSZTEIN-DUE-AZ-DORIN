@@ -50,12 +50,18 @@ public class HomeController : Controller
         Usuario usuario = BD.LevantarUsuarios(nombre, contraseña);
         if (usuario == null)
         {
-
+         int registrosafectados = Usuario.AgregarUsuario(usuario, contraseña);
+            if (registrosafectados > 0)
+             {
+            HttpContext.Session.SetString("Usuario", usuario);
+            return RedirectToAction("Index");
+            }
         }
         else
         {
             ViewBag.error = "Este nombre de usuario ya esta utilizado, por favor ingresar otro";
             return View("Registro");
         }
+        return View();
     }
 }

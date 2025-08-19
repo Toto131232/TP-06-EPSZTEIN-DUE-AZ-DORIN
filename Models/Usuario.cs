@@ -7,14 +7,6 @@ public class Usuario
     public string NombreUsuario { get; set; }
     public string Contraseña { get; set; }
     public int Id {get; set;}
-
-    public Usuario(int Id, string NombreUsuario, string Contraseña)
-    {
-        this.Id=Id;
-        this.NombreUsuario = NombreUsuario;
-        this.Contraseña = Contraseña;
-        
-    }
     public static int AgregarUsuario(string nombreUsuario, string contraseña)
     {
         string query = "Insert Into Usuario(NombreUsuario, Contraseña) Values (@nombreusuario, @contraseña)";

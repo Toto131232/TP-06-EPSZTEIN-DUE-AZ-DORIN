@@ -24,9 +24,9 @@ namespace TP06_ToDoList.Controllers
             return View(tarea);
         }
         [HttpPost]
-        public IActionResult EditarTarea()
+        public IActionResult EditarTarea(int id, string titulo)
         {
-            BD.ActualizarTarea(id, nombre, fecha, categoria);
+            BD.ActualizarTarea(id, tiulo);
             return RedirectToAction("Index", "Home");
         }
         [HttpPost]

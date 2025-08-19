@@ -3,9 +3,9 @@ using Dapper;
 public class BD
 {
     private static string _connectionString = @"Server=localhost; Database=NombreBase;Integrated Security=True;TrustServerCertificate=True;";
-    public static List<Usuario> Usuarios = new List<Usuario>();
+    public static Usuario Usuarios = new Usuario();
     public static Tarea Tareas = new Tarea();
-    public static List<Usuario> LevantarUsuarios(string nombreusuario, int contraseña)
+    public static Usuario LevantarUsuarios(string nombreusuario, int contraseña)
     {
         using (SqlConnection connection = new SqlConnection(_connectionString))
         {
@@ -74,7 +74,10 @@ public class BD
     }
     public static int AgregarTarea(string titulo)
     {
-        int Id = connection.Query<int>("INSERT INTO Tareas Titulo VALUES @titulo", new { titulo });
+        using (SqlConnection connection = Conexion())
+        {
+               int Id = connection.Query<int>("INSERT INTO Tareas Titulo VALUES @titulo", new { titulo });
+        }
         return Id;
     }
     public static void AgregarUsuarioXTarea(int IdUsuario, int IdTarea)
@@ -88,6 +91,15 @@ public class BD
             connection.Execute(
                 "INSERT INTO UsuarioXTarea (Id, Idusuario, IdTarea) VALUES (@Id, @IdUsuario, @IdTarea)",
                 new { id = Id, IdUsuario, IdTarea }
+            );
+        }
+    }
+     public static void ActualizarTarea(int id, string titulo)
+    {
+        using (SqlConnection connection = ObtenerConexion())
+        {
+            connection.Execute("UPDATE Tareas SET Nombre = @titulo WHERE Id = @id",
+                new { id, titulo }
             );
         }
     }
@@ -112,7 +124,7 @@ public class BD
             );
         }
     }
-    public static Tarea ObtenerTareasPorUsuario(string Usuario)
+    public static Tarea TareasXUsuario(string Usuario)
     {
         using (SqlConnection connection = Conexion())
         {
@@ -162,7 +174,7 @@ public class BD
             return true;
         }
     }
-    public static Tarea TareasCompartidas(string usuario)
+    public static Tarea ListaTareasCompartidas(string usuario)
     {
         using (SqlConnection connection = Conexion())
         {

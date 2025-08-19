@@ -7,3 +7,12 @@ C:\Users\49194388\Desktop\AAA\TP-06-EPSZTEIN-DUE-AZ-DORIN\obj\Debug\net8.0\TP-06
 C:\Users\49194388\Desktop\AAA\TP-06-EPSZTEIN-DUE-AZ-DORIN\obj\Debug\net8.0\TP-06-EPSZTEIN-DUEÑAZ-DORIN.RazorAssemblyInfo.cache
 C:\Users\49194388\Desktop\AAA\TP-06-EPSZTEIN-DUE-AZ-DORIN\obj\Debug\net8.0\TP-06-EPSZTEIN-DUEÑAZ-DORIN.RazorAssemblyInfo.cs
 C:\Users\49194388\Desktop\AAA\TP-06-EPSZTEIN-DUE-AZ-DORIN\obj\Debug\net8.0\TP-06-EPSZTEIN-DUEÑAZ-DORIN.sourcelink.json
+C:\Users\49194388\Desktop\AA\TP-06-EPSZTEIN-DUE-AZ-DORIN\obj\Debug\net8.0\TP-06-EPSZTEIN-DUEÑAZ-DORIN.csproj.AssemblyReference.cache
+C:\Users\49194388\Desktop\AA\TP-06-EPSZTEIN-DUE-AZ-DORIN\obj\Debug\net8.0\TP-06-EPSZTEIN-DUEÑAZ-DORIN.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\49194388\Desktop\AA\TP-06-EPSZTEIN-DUE-AZ-DORIN\obj\Debug\net8.0\TP-06-EPSZTEIN-DUEÑAZ-DORIN.AssemblyInfoInputs.cache
+C:\Users\49194388\Desktop\AA\TP-06-EPSZTEIN-DUE-AZ-DORIN\obj\Debug\net8.0\TP-06-EPSZTEIN-DUEÑAZ-DORIN.AssemblyInfo.cs
+C:\Users\49194388\Desktop\AA\TP-06-EPSZTEIN-DUE-AZ-DORIN\obj\Debug\net8.0\TP-06-EPSZTEIN-DUEÑAZ-DORIN.csproj.CoreCompileInputs.cache
+C:\Users\49194388\Desktop\AA\TP-06-EPSZTEIN-DUE-AZ-DORIN\obj\Debug\net8.0\TP-06-EPSZTEIN-DUEÑAZ-DORIN.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\49194388\Desktop\AA\TP-06-EPSZTEIN-DUE-AZ-DORIN\obj\Debug\net8.0\TP-06-EPSZTEIN-DUEÑAZ-DORIN.RazorAssemblyInfo.cache
+C:\Users\49194388\Desktop\AA\TP-06-EPSZTEIN-DUE-AZ-DORIN\obj\Debug\net8.0\TP-06-EPSZTEIN-DUEÑAZ-DORIN.RazorAssemblyInfo.cs
+C:\Users\49194388\Desktop\AA\TP-06-EPSZTEIN-DUE-AZ-DORIN\obj\Debug\net8.0\TP-06-EPSZTEIN-DUEÑAZ-DORIN.sourcelink.json
