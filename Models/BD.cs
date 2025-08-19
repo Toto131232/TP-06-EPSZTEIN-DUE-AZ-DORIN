@@ -4,7 +4,7 @@ public class BD
 {
     private static string _connectionString = @"Server=localhost; Database=NombreBase;Integrated Security=True;TrustServerCertificate=True;";
     public static List<Usuario> Usuarios = new List<Usuario>();
-    public static List<Tarea> Tareas = new List<Tarea>();
+    public static Tarea Tareas = new Tarea();
     public static List<Usuario> LevantarUsuarios(string nombreusuario, int contraseña)
     {
         using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -14,12 +14,12 @@ public class BD
         }
         return Usuarios;
     }
-    public static List<Tarea> LevantarTareas(int Id)
+    public static Tarea LevantarTareas(int Id)
     {
         using (SqlConnection connection = Conexion())
         {
             string query = "SELECT * FROM Tareas WHERRE Id= @Id";
-            Tareas = connection.Query<Tarea>(query, new {Id}).ToList();
+            Tareas = connection.QueryFirstOrDefault<Tarea>(query, new { Id });
         }
         return Tareas;
     }
@@ -39,21 +39,21 @@ public class BD
     {
         return new SqlConnection(_connectionString);
     }
-    public static List<Tarea> VerificarTareasActivas()
+    public static Tarea VerificarTareasActivas()
     {
         using (SqlConnection connection = Conexion())
         {
             var query = "SELECT * FROM Tarea WHERE  Finalizada=FALSE";
-            Tareas = connection.Query<Tarea>(query).ToList();
+            Tareas = connection.QueryFirstOrDefault<Tarea>(query);
             return Tareas;
         }
     }
-    public static List<Tarea> VerificarTareasFinalizadas()
+    public static Tarea VerificarTareasFinalizadas()
     {
         using (SqlConnection connection = Conexion())
         {
             var query = "SELECT * FROM Tareas WHERE Finalizada = true";
-            Tareas = connection.Query<Tarea>(query).ToList();
+            Tareas = connection.QueryFirstOrDefault<Tarea>(query);
             return Tareas;
         }
     }
@@ -91,6 +91,95 @@ public class BD
             );
         }
     }
+
+
+    /* ----------Ns si esta bn---------*/
+    public static void AgregarUsuarioTarea2(string Usuario, int IdTarea)
+    {
+        using (SqlConnection connection = Conexion())
+        {
+            int IdUsuario = connection.QueryFirstOrDefault<int>("SELECT Id FROM Usuario WHERE Usuario = @Usuario", new { Usuario });
+
+            if (IdUsuario <= 0)
+            {
+                throw new InvalidOperationException("No se encontró en la base de datos.");
+            }
+
+            int Id = connection.QueryFirstOrDefault<int>("SELECT ISNULL(MAX(Id), 0) + 1 FROM UsuarioXTarea");
+
+            connection.Execute("INSERT INTO UsuarioXTarea (Id, IdUsuario, IdTarea) VALUES (@Id, @IdUsuario, @IdTarea)",
+                new { id = Id, IdUsuario, IdTarea }
+            );
+        }
+    }
+    public static Tarea ObtenerTareasPorUsuario(string Usuario)
+    {
+        using (SqlConnection connection = Conexion())
+        {
+            string query = @"SELECT t.Id, t.Titulo, t.Finalizada FROM Tareas t
+                INNER JOIN UsuarioXTarea uxt ON uxt.IdTarea = t.Id
+                INNER JOIN Usuario u ON u.Id = uxt.IdUsuario
+                WHERE u.Nombre = @Usuario
+                  AND uxt.Id = (
+                      SELECT MIN(uxt.Id) FROM UsuarioXTarea WHERE uxt.IdTarea = t.Id)";
+            Tareas = connection.QueryFirstOrDefault<Tarea>(query, new { Usuario });
+            return Tareas;
+        }
+    }
+    public static bool CompartirTarea(string UsuarioCompartido, int IdTarea)
+    {
+        using (SqlConnection connection = Conexion())
+        {
+            int IdUsuario = connection.QueryFirstOrDefault<int>(
+                "SELECT Id FROM Usuario WHERE Usuario = @UsuarioCompartido",
+                new { UsuarioCompartido }
+            );
+
+            if (IdUsuario <= 0)
+            {
+                throw new InvalidOperationException("El usuario de destino no existe.");
+            }
+
+            int ExisteElUsuario = connection.QueryFirstOrDefault<int>(
+                "SELECT COUNT(1) FROM UsuarioXTarea WHERE IdUsuario = @IdUsuario AND IdTarea = @IdTarea",
+                new { IdUsuario, IdTarea }
+            );
+
+            if (ExisteElUsuario > 0)
+            {
+                return false;
+            }
+
+            int Id = connection.QueryFirstOrDefault<int>(
+                "SELECT ISNULL(MAX(ID), 0) + 1 FROM UsuarioXTarea"
+            );
+
+            connection.Execute(
+                "INSERT INTO UsuarioXTarea (Id, IdUsuario, IdTarea) VALUES (@id, @IdUsuario, @IdTarea)",
+                new { id = Id, idPerfil = IdUsuario, IdTarea }
+            );
+
+            return true;
+        }
+    }
+    public static Tarea TareasCompartidas(string usuario)
+    {
+        using (SqlConnection connection = Conexion())
+        {
+            string query = @"
+                SELECT t.Id, t.Titulo, t.Fecha, t.IDCategoria, t.Finalizada
+                FROM Tareas
+                INNER JOIN UsuarioXTarea ON uxt.IdTarea = t.Id
+                INNER JOIN Usuario ON u.Id = uxt.Idusuario
+                WHERE u.Nombre = @usuario AND t.Finalizada = 0
+                  AND uxt.Id <> (
+                      SELECT MIN(uxt.Id) FROM UsuarioXTarea WHERE uxt.IdTarea = t.Id
+                  )";
+            Tareas = connection.QueryFirstOrDefault<Tarea>(query, new { usuario });
+            return Tareas;
+        }
+    }
+    
 
 
     
