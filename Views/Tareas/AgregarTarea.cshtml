@@ -1,0 +1,117 @@
+@{
+    ViewData["Title"] = "Agregar Tarea";
+}
+
+<h1>ToDoList</h1>
+<div class="container">
+
+    <div class="form-container">
+        <form asp-action="AgregarTarea" asp-controller="Tareas" method="post">
+            <div class="form-group">
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" required class="form-control">
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Crear Tarea</button>
+                <a href="@Url.Action("Index", "Tareas")" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+/* Caja del formulario */
+.form-container {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Campos */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #444;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 6px rgba(0,123,255,0.4);
+    outline: none;
+}
+
+/* Botones */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+button, a.btn {
+    padding: 12px 18px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+  
+}
+
+/* Botón primario */
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Botón secundario */
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #495057;
+}
+</style>

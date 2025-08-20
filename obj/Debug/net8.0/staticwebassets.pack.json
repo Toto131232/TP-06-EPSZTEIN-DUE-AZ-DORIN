@@ -1,0 +1,81 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Toto Usuario\\Escritorio\\SS\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\Toto Usuario\\Escritorio\\SS\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Toto Usuario\\Escritorio\\SS\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\Toto Usuario\\Escritorio\\SS\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Toto Usuario\\Escritorio\\SS\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\Toto Usuario\\Escritorio\\SS\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\Toto Usuario\\Escritorio\\SS\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\Toto Usuario\\Escritorio\\SS\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\Toto Usuario\\Escritorio\\SS\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\Toto Usuario\\Escritorio\\SS\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\Toto Usuario\\Escritorio\\SS\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\Toto Usuario\\Escritorio\\SS\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Toto Usuario\\Escritorio\\SS\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\Toto Usuario\\Escritorio\\SS\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Toto Usuario\\Escritorio\\SS\\TP-06-EPSZTEIN-DUE-AZ-DORIN\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.TP-06-EPSZTEIN-DUEÑAZ-DORIN.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.TP-06-EPSZTEIN-DUEÑAZ-DORIN.props",
+      "PackagePath": "build\\TP-06-EPSZTEIN-DUEÑAZ-DORIN.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.TP-06-EPSZTEIN-DUEÑAZ-DORIN.props",
+      "PackagePath": "buildMultiTargeting\\TP-06-EPSZTEIN-DUEÑAZ-DORIN.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.TP-06-EPSZTEIN-DUEÑAZ-DORIN.props",
+      "PackagePath": "buildTransitive\\TP-06-EPSZTEIN-DUEÑAZ-DORIN.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

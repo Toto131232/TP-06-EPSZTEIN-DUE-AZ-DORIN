@@ -1,0 +1,130 @@
+@{
+    ViewData["Title"] = "Compartir tarea";
+    var tareas = ViewBag.Tareas as IEnumerable<dynamic>; // { Id, Titulo }
+    var usuarios = ViewBag.Usuarios as IEnumerable<dynamic>; // { Id, NombreUsuario }
+}
+
+<h1>ToDoList</h1>
+<div class="container">
+    <form asp-action="CompartirTarea" method="post" class="form-card">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <label for="Tarea">Tarea</label>
+            <select id="Tarea" name="TareaId" required>
+                <option value="" selected disabled>-- Seleccionar --</option>
+                @if (tareas != null)
+                {
+                    foreach (var t in tareas)
+                    {
+                        <option value="@t.Id">@t.Titulo</option>
+                    }
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Id">Compartir con</label>
+            <select id="Id" name="Id" required>
+                <option value="" selected disabled>Seleccionar un usuario</option>
+                @if (usuarios != null)
+                {
+                    foreach (var u in usuarios)
+                    {
+                        <option value="@u.Id">@u.NombreUsuario</option>
+                    }
+                }
+            </select>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-secondary">Compartir</button>
+        </div>
+    </form>
+</div>
+
+<style>
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Contenedor */
+.container {
+    max-width: 640px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+/* Tarjeta de formulario */
+.form-card {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Campos */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #444;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: border 0.3s, box-shadow 0.3s;
+    background: #fff;
+}
+
+select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 6px rgba(0,123,255,0.4);
+    outline: none;
+}
+
+/* Acciones */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Botones */
+button {
+    padding: 12px 18px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #495057;
+}
+</style>

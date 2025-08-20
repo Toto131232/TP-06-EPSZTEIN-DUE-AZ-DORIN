@@ -19,7 +19,7 @@ public class HomeController : Controller
     }
     public IActionResult IniciarSesion()
     {
-        return View();
+        return View("IniciarSesion");
     }
     public IActionResult Registro()
     {
@@ -30,38 +30,40 @@ public class HomeController : Controller
         HttpContext.Session.Clear();
         return RedirectToAction("Index");
     }
+
     [HttpPost]
-    public IActionResult iniciarsesion(string nombre, int contraseña)
+    public IActionResult iniciarsesion(string nombre, string contraseña)
     {
-        Usuario usuario = BD.LevantarUsuarios(nombre, contraseña);
-        if (usuario == null)
+        Usuario usuario = BD.LevantarUsuario(nombre, contraseña);
+        if (usuario != null)
         {
-            ViewBag.error = "El usuario o contraseña es incorrecto.";
+            string StringUsuario = Objeto.ObjectToString(usuario);
+            HttpContext.Session.SetString("integrante", StringUsuario);
+            return RedirectToAction("Index", "Tareas");
+        }
+        else
+        {
+            ViewBag.Error = "El nombre de usuario o la contraseña son incorrectos";
             return View("IniciarSesion");
         }
-        else
-        {
-            HttpContext.Session.SetString("Usuario", usuario.NombreUsuario);
-            return RedirectToAction("Perfil");
-        }
     }
-    public IActionResult registrar(string nombre, int contraseña)
+
+    [HttpPost]
+    public IActionResult Registrar(string nombre, string contraseña)
     {
-        Usuario usuario = BD.LevantarUsuarios(nombre, contraseña);
-        if (usuario == null)
+        Usuario usuario = BD.LevantarUsuarioXNombre(nombre);
+        if (usuario != null)
         {
-         int registrosafectados = Usuario.AgregarUsuario(usuario, contraseña);
-            if (registrosafectados > 0)
-             {
-            HttpContext.Session.SetString("Usuario", usuario);
-            return RedirectToAction("Index");
-            }
-        }
-        else
-        {
-            ViewBag.error = "Este nombre de usuario ya esta utilizado, por favor ingresar otro";
+            ViewBag.Error = "Ya existe un usuario con ese nombre";
             return View("Registro");
         }
-        return View();
+
+        Usuario usuario2 = new Usuario(nombre, contraseña);
+        BD.AgregarUsuario(usuario);
+        
+        string Stringusuario = Objeto.ObjectToString(usuario2);
+        HttpContext.Session.SetString("integrante", Stringusuario);
+        
+        return RedirectToAction("Index", "Tareas");
     }
 }

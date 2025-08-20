@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\TP-06-EPSZTEIN-DUEÑAZ-DORIN.props" />
+</Project>

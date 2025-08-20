@@ -1,0 +1,197 @@
+@{
+    ViewData["Title"] = "Mis Tareas";
+}
+
+<div class="container">
+    <div class="header">
+        <h1>ToDoList</h1>
+        <h2>Tareas</h2>
+        <div class="user-info">
+            <span>Bienvenido, @ViewBag.Usuario.NombreUsuario</span>
+            <a href="@Url.Action("CerrarSesion", "Home")" class="btn btn-logout">Cerrar Sesión</a>
+        </div>
+    </div>
+    
+    <div class="actions">
+        <a href="@Url.Action("AgregarTarea", "Tareas")" class="btn btn-primary"> Agregar Tarea</a>
+    </div>
+
+    <div class="tareas-container">
+        @if (ViewBag.Tareas != null && ViewBag.Tareas.Count > 0)
+        {
+            foreach (var tarea in ViewBag.Tareas)
+            {
+                <div class="tarea-card">
+                    <div class="tarea-info">
+                        <h3>@tarea.Titulo</h3>
+                    </div>
+                    <div class="tarea-actions">
+                        <a href="@Url.Action("Editar", "Tareas", new { id = tarea.ID })" class="btn btn-edit">Editar</a>
+                        <a href="@Url.Action("Compartir", "Tareas", new { id = tarea.ID })" class="btn btn-share"> Compartir</a>
+                        <a href="@Url.Action("Eliminar", "Tareas", new { id = tarea.ID })" class="btn btn-delete"> Eliminar</a>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="no-tareas">
+                <p>No tienes tareas</p>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.header h2 {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.user-info {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.user-info span {
+    font-weight: bold;
+    color: #444;
+}
+
+.btn-logout {
+    background: #dc3545;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+   
+}
+
+.btn-logout:hover {
+    background: #b02a37;
+}
+
+/* Acciones generales */
+.actions {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: bold;
+
+}
+
+.btn-primary {
+    background: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+}
+
+/* Contenedor de tareas */
+.tareas-container {
+    display: grid;
+    gap: 20px;
+}
+
+/* Tarjeta de tarea */
+.tarea-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tarea-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Botones de acciones */
+.tarea-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-edit {
+    background: #ffc107;
+    color: #000;
+}
+
+.btn-edit:hover {
+    background: #e0a800;
+    color: #000;
+}
+
+.btn-share {
+    background: #17a2b8;
+    color: #fff;
+}
+
+.btn-share:hover {
+    background: #117a8b;
+}
+
+.btn-delete {
+    background: #dc3545;
+    color: #fff;
+}
+
+.btn-delete:hover {
+    background: #b02a37;
+}
+
+/* No tareas */
+.no-tareas {
+    text-align: center;
+    padding: 30px;
+    background: #f1f3f5;
+    border-radius: 12px;
+    color: #555;
+    font-style: italic;
+}
+</style>
